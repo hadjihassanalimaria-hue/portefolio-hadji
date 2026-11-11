@@ -1,0 +1,200 @@
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - MARIA</title>
+    <style>
+        /* Thème sombre par défaut (comme sur ta capture) */
+        :root {
+            --bg: #121212;
+            --card: #1e1e1e;
+            --text: #ffffff;
+            --subtext: #cccccc;
+            --btn-theme: #0056d2;
+            --btn-cv: #555555;
+        }
+
+        /* Thème clair quand on clique sur "Changer de Thème" */
+        body.light-mode {
+            --bg: #f4f4f9;
+            --card: #ffffff;
+            --text: #121212;
+            --subtext: #444444;
+            --btn-theme: #0056d2;
+            --btn-cv: #333333;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            text-align: center;
+            padding: 30px 20px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        /* Bouton bleu "Changer de Thème" */
+        .btn-theme {
+            background-color: var(--btn-theme);
+            color: #ffffff;
+            border: none;
+            padding: 10px 22px;
+            border-radius: 6px;
+            font-size: 0.95rem;
+            font-weight: bold;
+            cursor: pointer;
+            margin-bottom: 30px;
+        }
+
+        /* Grand titre principal */
+        h1 {
+            font-size: 2.2rem;
+            line-height: 1.2;
+            margin-bottom: 18px;
+        }
+
+        /* Texte de présentation */
+        .intro {
+            color: var(--subtext);
+            font-size: 1.05rem;
+            line-height: 1.5;
+            max-width: 550px;
+            margin: 0 auto 25px;
+        }
+
+        /* Bouton gris "Télécharger mon CV (PDF)" */
+        .btn-cv {
+            display: inline-block;
+            background-color: var(--btn-cv);
+            color: #ffffff;
+            text-decoration: none;
+            padding: 12px 24px;
+            border-radius: 4px;
+            font-size: 0.95rem;
+            margin-bottom: 35px;
+            cursor: pointer;
+            border: none;
+        }
+
+        /* Titre des sections */
+        h2 {
+            font-size: 1.6rem;
+            margin-bottom: 25px;
+        }
+
+        /* Grille responsive pour les 4 photos */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
+            max-width: 1000px;
+            margin: 0 auto 40px;
+        }
+
+        .photo-card {
+            background-color: var(--card);
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            padding-bottom: 15px;
+        }
+
+        .photo-card img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            display: block;
+            margin-bottom: 12px;
+        }
+
+        .photo-card h3 {
+            font-size: 1.15rem;
+            margin-bottom: 5px;
+        }
+
+        .photo-card p {
+            color: var(--subtext);
+            font-size: 0.9rem;
+            padding: 0 15px;
+        }
+
+        /* Encadré pour afficher le CV sur la page */
+        .cv-section {
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+
+        iframe {
+            width: 100%;
+            height: 450px;
+            border: none;
+            border-radius: 10px;
+            background: #ffffff;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Bouton pour passer du mode sombre au mode clair -->
+    <button class="btn-theme" onclick="toggleTheme()">Changer de Thème</button>
+
+    <!-- Titre et présentation -->
+    <h1>Bonjour, je m'appelle<br>MARIA</h1>
+    
+    <p class="intro">
+        Passionné par l'informatique, la cuisine |  Découvrez mon parcours, ma personnalité et mes compétences.
+    </p>
+
+    <!-- Bouton de téléchargement du CV -->
+    <a href="mon-cv.pdf" download="Mon_CV.pdf" class="btn-cv">Télécharger mon CV (PDF)</a>
+
+    <!-- Section des 4 photos -->
+    <h2>Mon Univers & Mes Compétences</h2>
+
+    <div class="gallery">
+        <div class="photo-card">
+            <img src="photo-moi.jpg" alt="Moi et ma personnalité">
+            <h3>Moi & Ma Personnalité</h3>
+            <p>Sérieuse et toujours motivée pour apprendre.</p>
+        </div>
+
+        <div class="photo-card">
+            <img src="photo-informatique.jpg" alt="Informatique">
+            <h3>L'Informatique</h3>
+            <p>Développeuse en cours et ambitieuse.</p>
+        </div>
+
+        <div class="photo-card">
+            <img src="photo-cuisine.jpg" alt="La cuisine">
+            <h3>La Cuisine</h3>
+            <p> organisation et passion de la préparation.</p>
+        </div>
+
+        <div class="photo-card">
+            <img src="photo-caisse.jpg" alt="La caisse">
+            <h3>La Caisse</h3>
+            <p>Accueil client, rapidité et gestion de l'encaissement.</p>
+        </div>
+    </div>
+
+    <!-- Aperçu direct du CV intégré -->
+    <div class="cv-section">
+        <h2>Mon Curriculum Vitae</h2>
+        <iframe src="mon-cv.pdf"></iframe>
+    </div>
+
+    <!-- Script pour le bouton Changer de Thème -->
+    <script>
+        function toggleTheme() {
+            document.body.classList.toggle('light-mode');
+        }
+    </script>
+
+</body>
+</html>
